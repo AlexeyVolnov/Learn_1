@@ -1,29 +1,25 @@
-var money;
-var time;
 // вводим данные о своем бюджете
-money = Number.parseInt(prompt("Ваш бюджет на месяц?:", 0));
-time = (prompt("Введите дату в формате yyy-mm-dd"));
+let money = Number.parseInt(prompt("Ваш бюджет на месяц?:", 0)),
+    time = (prompt("Введите дату в формате yyy-mm-dd"));
 
 // помещаем данные о своем бюджете в обьект
-let appData = {
+var appData = {
     budget: money,
-    Date: time
+    expenses: {},
+    Date: time,
+    income: [],
+    savings: false,
+    optionalexpenses: {}
 }
-
-
-
 
 // спрашиваем о обязательной покупке в этом месяце для того чтобы потом убрать эту сумму из бюджета
-var question_1 = prompt("Введите обязательную статью расходов: ");
-var question_2 = Number.parseInt(prompt("Во сколько обойдется?: "));
-
-var expenses = {
-    question: question_1 + ":" + question_2
-}
-console.log(expenses);
+let question_1 = prompt("Введите обязательную статью расходов: "),
+    question_2 = Number.parseInt(prompt("Во сколько обойдется?: ")),
+    question_3 = prompt("Введите обязательную статью расходов: "),
+    question_4 = Number.parseInt(prompt("Во сколько обойдется?: "));
 
 
-// Производим расчет бюджета на 1 день и выводим на экран  
+appData.expenses.question_1 = question_2;
+appData.expenses.question_3 = question_4;
 
-var amountOfMoneyPerDay = (money - question_2) / 30;
-alert("Ваш бюджет на один день составляет:" + amountOfMoneyPerDay)
+alert(appData.budget / 30);
